@@ -45,14 +45,14 @@ public class Champion_Activity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    String championIds = Champion_Activity.this.run("https://euw.api.pvp.net/api/lol/euw/v1.2/champion?api_key=d572d57f-7126-490a-ad90-8bc382943e9c");
+                    String championIds = Champion_Activity.this.run("https://euw.api.pvp.net/api/lol/euw/v1.2/champion?api_key=key");
                     JSONObject jObject = new JSONObject(championIds);
                     JSONArray jsonArray = jObject.getJSONArray("champions");
                     for(int i=0; i<jsonArray.length(); i++){
 
                         JSONObject championObject = jsonArray.getJSONObject(i);
                         int id = championObject.getInt("id");
-                        String championText = Champion_Activity.this.run("https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/"+id+"?champData=image,lore&api_key=d572d57f-7126-490a-ad90-8bc382943e9c");
+                        String championText = Champion_Activity.this.run("https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/"+id+"?champData=image,lore&api_key=key");
                         JSONObject championJson = new JSONObject(championText);
                         Champion champion = new Champion(championJson.getString("name"), championJson.getString("lore"),
                                                        "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+championJson.getString("name")+"_0.jpg");
