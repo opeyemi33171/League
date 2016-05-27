@@ -5,14 +5,14 @@ package com.example.opeyemi.league;
  */
 public class Champion {
 
-    public Champion(String name/*, String lore , String winRate,  String imageUrl*/){
+    public Champion(String name, String lore , String imageUrl){
 
         this.name = name;
-        /*
+
         this.lore = lore;
-        this.winRate = winRate;
+
         this.imageUrl = imageUrl;
-        */
+
     }
     public String getName() {
         return name;
@@ -33,16 +33,6 @@ public class Champion {
     }
 
     private String lore;
-
-    public String getWinRate() {
-        return winRate;
-    }
-
-    public void setWinRate(String winRate) {
-        this.winRate = winRate;
-    }
-
-    private String winRate;
 
     public String getImageUrl() {
         return imageUrl;

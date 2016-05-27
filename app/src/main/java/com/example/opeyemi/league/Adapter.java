@@ -1,10 +1,15 @@
 package com.example.opeyemi.league;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -26,6 +31,15 @@ public class Adapter extends ArrayAdapter<Champion> {
 
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.champion, parent, false);
         }
+
+        TextView championName = (TextView) convertView.findViewById(R.id.championName);
+        championName.setText(champ.getName());
+
+        ImageView championImage = (ImageView) convertView.findViewById(R.id.championImage);
+
+
+        Picasso.with(getContext()).load("http://i.imgur.com/DvpvklR.png").into(championImage);
+
 
         return convertView;
     }
