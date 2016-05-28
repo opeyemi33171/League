@@ -1,5 +1,6 @@
 package com.example.opeyemi.league;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -37,6 +39,14 @@ public class Champion_Activity extends AppCompatActivity {
         ListView championListView = (ListView)findViewById(R.id.championListView);
         final ArrayList<Champion> champions = new ArrayList<>();
         final Adapter adapter = new Adapter(this, champions);
+
+        championListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent overviewPageIntent = new Intent(Champion_Activity.this, Overview_Activity.class);
+                startActivity(overviewPageIntent);
+            }
+        });
 
 
         championListView.setAdapter(adapter);

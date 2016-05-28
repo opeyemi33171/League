@@ -38,7 +38,7 @@ public class Adapter extends ArrayAdapter<Champion> {
         ImageView championImage = (ImageView) convertView.findViewById(R.id.championImage);
 
 
-        Picasso.with(getContext()).load("http://i.imgur.com/DvpvklR.png").into(championImage);
+        Picasso.with(getContext()).load(champ.getImageUrl()).into(championImage);
 
 
         return convertView;
