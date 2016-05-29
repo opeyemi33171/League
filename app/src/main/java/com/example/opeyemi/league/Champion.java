@@ -5,13 +5,17 @@ package com.example.opeyemi.league;
  */
 public class Champion {
 
-    public Champion(String name, String lore , String imageUrl){
+    public Champion(String name, String lore , String imageUrl,String id){
 
         this.name = name;
 
         this.lore = lore;
 
         this.imageUrl = imageUrl;
+
+        this.id = id;
+
+
 
     }
     public String getName() {
@@ -43,4 +47,14 @@ public class Champion {
     }
 
     private String imageUrl;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    private String id;
 }

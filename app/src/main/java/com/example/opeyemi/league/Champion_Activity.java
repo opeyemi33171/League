@@ -43,7 +43,15 @@ public class Champion_Activity extends AppCompatActivity {
         championListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Champion champ = champions.get(i);
+
+                Bundle championId = new Bundle();
+                championId.putString("ID", champ.getId());
+
                 Intent overviewPageIntent = new Intent(Champion_Activity.this, Overview_Activity.class);
+
+                overviewPageIntent.putExtras(championId);
                 startActivity(overviewPageIntent);
             }
         });
@@ -65,7 +73,7 @@ public class Champion_Activity extends AppCompatActivity {
                         String championText = Champion_Activity.this.run("https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/"+id+"?champData=image,lore&api_key=d572d57f-7126-490a-ad90-8bc382943e9c");
                         JSONObject championJson = new JSONObject(championText);
                         Champion champion = new Champion(championJson.getString("name"), championJson.getString("lore"),
-                                                       "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+championJson.getString("name")+"_0.jpg");
+                                                       "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+championJson.getString("name")+"_0.jpg", Integer.toString(id));
                         champions.add(champion);
                         runOnUiThread(new Runnable() {
                             @Override
